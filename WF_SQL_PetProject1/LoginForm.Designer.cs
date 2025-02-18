@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.MainPanelLogin = new System.Windows.Forms.Panel();
             this.labelRegistration = new System.Windows.Forms.Label();
             this.CheckBoxPasswordLogin = new System.Windows.Forms.CheckBox();
@@ -39,10 +41,15 @@
             this.UpperPanelLogin = new System.Windows.Forms.Panel();
             this.LabelCloseWindowLogin = new System.Windows.Forms.Label();
             this.LabelAuthorization = new System.Windows.Forms.Label();
+            this.AppMinimized = new System.Windows.Forms.Label();
+            this.SysTrayLogin = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuStripLogin = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainPanelLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PassPicBoxLogin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserPicBoxLogin)).BeginInit();
             this.UpperPanelLogin.SuspendLayout();
+            this.contextMenuStripLogin.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainPanelLogin
@@ -142,6 +149,7 @@
             // UpperPanelLogin
             // 
             this.UpperPanelLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(175)))), ((int)(((byte)(68)))));
+            this.UpperPanelLogin.Controls.Add(this.AppMinimized);
             this.UpperPanelLogin.Controls.Add(this.LabelCloseWindowLogin);
             this.UpperPanelLogin.Controls.Add(this.LabelAuthorization);
             this.UpperPanelLogin.Dock = System.Windows.Forms.DockStyle.Top;
@@ -178,6 +186,41 @@
             this.LabelAuthorization.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LabelAuthorization_MouseDown);
             this.LabelAuthorization.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LabelAuthorization_MouseMove);
             // 
+            // AppMinimized
+            // 
+            this.AppMinimized.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(133)))), ((int)(((byte)(212)))));
+            this.AppMinimized.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AppMinimized.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AppMinimized.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.AppMinimized.Location = new System.Drawing.Point(348, 0);
+            this.AppMinimized.Name = "AppMinimized";
+            this.AppMinimized.Size = new System.Drawing.Size(27, 26);
+            this.AppMinimized.TabIndex = 3;
+            this.AppMinimized.Text = "_";
+            this.AppMinimized.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.AppMinimized.Click += new System.EventHandler(this.AppMinimized_Click);
+            // 
+            // SysTrayLogin
+            // 
+            this.SysTrayLogin.ContextMenuStrip = this.contextMenuStripLogin;
+            this.SysTrayLogin.Icon = ((System.Drawing.Icon)(resources.GetObject("SysTrayLogin.Icon")));
+            this.SysTrayLogin.Text = "notifyIcon1";
+            this.SysTrayLogin.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.SysTrayLogin_MouseDoubleClick);
+            // 
+            // contextMenuStripLogin
+            // 
+            this.contextMenuStripLogin.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.closeToolStripMenuItem});
+            this.contextMenuStripLogin.Name = "contextMenuStripLogin";
+            this.contextMenuStripLogin.Size = new System.Drawing.Size(104, 26);
+            // 
+            // closeToolStripMenuItem
+            // 
+            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.closeToolStripMenuItem.Text = "Close";
+            this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -186,12 +229,16 @@
             this.Controls.Add(this.MainPanelLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
+            this.Resize += new System.EventHandler(this.LoginForm_Resize);
             this.MainPanelLogin.ResumeLayout(false);
             this.MainPanelLogin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PassPicBoxLogin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserPicBoxLogin)).EndInit();
             this.UpperPanelLogin.ResumeLayout(false);
+            this.contextMenuStripLogin.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -209,5 +256,9 @@
         private System.Windows.Forms.Button buttonEnterLogin;
         private System.Windows.Forms.CheckBox CheckBoxPasswordLogin;
         private System.Windows.Forms.Label labelRegistration;
+        private System.Windows.Forms.Label AppMinimized;
+        private System.Windows.Forms.NotifyIcon SysTrayLogin;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripLogin;
+        private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
     }
 }

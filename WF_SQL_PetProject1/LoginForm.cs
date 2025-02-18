@@ -20,10 +20,46 @@ namespace WF_SQL_PetProject1
         {
             InitializeComponent();
         }
+        private void LoginForm_Load(object sender, EventArgs e) // sys tray name
+        {
+            SysTrayLogin.BalloonTipTitle = "Name of App";
+            SysTrayLogin.BalloonTipText = "fdsfds";
+            SysTrayLogin.Text = "name of app";
+        }
+
+        private void LoginForm_Resize(object sender, EventArgs e) // sys tray
+        {
+            if (WindowState == FormWindowState.Minimized)
+            {
+                this.Hide();
+                SysTrayLogin.Visible = true;
+                SysTrayLogin.ShowBalloonTip(1000);
+            }
+            else if (FormWindowState.Normal == this.WindowState)
+            {
+                SysTrayLogin.Visible = false;
+            }
+        }
+
+        private void SysTrayLogin_MouseDoubleClick(object sender, MouseEventArgs e) // sys tray
+        {
+            this.Show();
+            SysTrayLogin.Visible = false;
+            WindowState = FormWindowState.Normal;
+        }
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e) // sys tray close
+        {
+            Application.Exit();
+        }
 
         private void LabelCloseWindowLogin_Click(object sender, EventArgs e) // button to close the login window
         {
             Application.Exit();
+        }
+        private void AppMinimized_Click(object sender, EventArgs e) // app minimized
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void CheckBoxPasswordLogin_CheckedChanged(object sender, EventArgs e) // show password
@@ -90,7 +126,7 @@ namespace WF_SQL_PetProject1
             } 
         }
 
-        private void labelRegistration_Click(object sender, EventArgs e)
+        private void labelRegistration_Click(object sender, EventArgs e) // open register window
         {
             this.Hide();
             RegisterForm registerForm = new RegisterForm();

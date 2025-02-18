@@ -26,9 +26,47 @@ namespace WF_SQL_PetProject1
             userSurnameBoxRegister.ForeColor = Color.Gray;
         }
 
+        private void SysTrayRegister_MouseDoubleClick(object sender, MouseEventArgs e) // sys tray
+        {
+            this.Show();
+            SysTrayRegister.Visible = false;
+            WindowState = FormWindowState.Normal;
+        }
+
+        private void RegisterForm_Load(object sender, EventArgs e) // name of sys tray
+        {
+            SysTrayRegister.BalloonTipTitle = "Name of App";
+            SysTrayRegister.BalloonTipText = "fdsfds";
+            SysTrayRegister.Text = "name of app";
+        }
+
+        private void RegisterForm_Resize(object sender, EventArgs e) // for sys tray
+        {
+            if (WindowState == FormWindowState.Minimized)
+            {
+                this.Hide();
+                SysTrayRegister.Visible = true;
+                SysTrayRegister.ShowBalloonTip(1000);
+            }
+            else if (FormWindowState.Normal == this.WindowState)
+            {
+                SysTrayRegister.Visible = false;
+            }
+        }
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e) // sys tray close
+        {
+            Application.Exit();
+        }
+
         private void LabelCloseWindowRegister_Click(object sender, EventArgs e) // close window register
         {
             Application.Exit();
+        }
+
+        private void AppMinimized_Click(object sender, EventArgs e) // app minimized
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void MainPanelRegister_MouseMove(object sender, MouseEventArgs e)
