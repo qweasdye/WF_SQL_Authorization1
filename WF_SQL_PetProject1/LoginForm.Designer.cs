@@ -39,9 +39,9 @@
             this.PassPicBoxLogin = new System.Windows.Forms.PictureBox();
             this.UserPicBoxLogin = new System.Windows.Forms.PictureBox();
             this.UpperPanelLogin = new System.Windows.Forms.Panel();
+            this.AppMinimized = new System.Windows.Forms.Label();
             this.LabelCloseWindowLogin = new System.Windows.Forms.Label();
             this.LabelAuthorization = new System.Windows.Forms.Label();
-            this.AppMinimized = new System.Windows.Forms.Label();
             this.SysTrayLogin = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStripLogin = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -158,6 +158,20 @@
             this.UpperPanelLogin.Size = new System.Drawing.Size(408, 100);
             this.UpperPanelLogin.TabIndex = 0;
             // 
+            // AppMinimized
+            // 
+            this.AppMinimized.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(133)))), ((int)(((byte)(212)))));
+            this.AppMinimized.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AppMinimized.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AppMinimized.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.AppMinimized.Location = new System.Drawing.Point(348, 0);
+            this.AppMinimized.Name = "AppMinimized";
+            this.AppMinimized.Size = new System.Drawing.Size(27, 26);
+            this.AppMinimized.TabIndex = 3;
+            this.AppMinimized.Text = "_";
+            this.AppMinimized.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.AppMinimized.Click += new System.EventHandler(this.AppMinimized_Click);
+            // 
             // LabelCloseWindowLogin
             // 
             this.LabelCloseWindowLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(133)))), ((int)(((byte)(212)))));
@@ -186,20 +200,6 @@
             this.LabelAuthorization.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LabelAuthorization_MouseDown);
             this.LabelAuthorization.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LabelAuthorization_MouseMove);
             // 
-            // AppMinimized
-            // 
-            this.AppMinimized.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(133)))), ((int)(((byte)(212)))));
-            this.AppMinimized.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AppMinimized.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AppMinimized.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.AppMinimized.Location = new System.Drawing.Point(348, 0);
-            this.AppMinimized.Name = "AppMinimized";
-            this.AppMinimized.Size = new System.Drawing.Size(27, 26);
-            this.AppMinimized.TabIndex = 3;
-            this.AppMinimized.Text = "_";
-            this.AppMinimized.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.AppMinimized.Click += new System.EventHandler(this.AppMinimized_Click);
-            // 
             // SysTrayLogin
             // 
             this.SysTrayLogin.ContextMenuStrip = this.contextMenuStripLogin;
@@ -217,7 +217,7 @@
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
@@ -250,8 +250,6 @@
         private System.Windows.Forms.Label LabelAuthorization;
         private System.Windows.Forms.Label LabelCloseWindowLogin;
         private System.Windows.Forms.PictureBox UserPicBoxLogin;
-        private System.Windows.Forms.TextBox PasswordBoxLogin;
-        private System.Windows.Forms.TextBox UserBoxLogin;
         private System.Windows.Forms.PictureBox PassPicBoxLogin;
         private System.Windows.Forms.Button buttonEnterLogin;
         private System.Windows.Forms.CheckBox CheckBoxPasswordLogin;
@@ -260,5 +258,7 @@
         private System.Windows.Forms.NotifyIcon SysTrayLogin;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripLogin;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
+        public System.Windows.Forms.TextBox PasswordBoxLogin;
+        public System.Windows.Forms.TextBox UserBoxLogin;
     }
 }

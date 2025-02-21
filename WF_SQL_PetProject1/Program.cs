@@ -16,7 +16,7 @@ namespace WF_SQL_PetProject1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RegisterForm());
+            Application.Run(new LoginForm());
         }
     }
 }

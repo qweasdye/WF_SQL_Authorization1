@@ -1,24 +1,74 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WF_SQL_PetProject1
 {
     public partial class MainForm : Form
     {
         Point lastPoint; // special class for setting coordinates
-        public MainForm()
+        public MainForm(string text)
         {
             InitializeComponent();
+            FillData(text);
         }
 
-        private void MainForm_Load(object sender, EventArgs e)// sys tray
+        public MainForm(string name, string surname)
+        {
+            InitializeComponent();
+
+            LabelName.Text = name;
+            LabelName.Text = surname;
+        }
+
+        private void FillData(string text)
+        {
+            string connectionString = "server=localhost;port=3306;user=root;password=root;database=userdb";
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            LoginForm loginForm = new LoginForm();
+            try
+            {
+                // Выполняем запрос к базе данных
+                MySqlCommand command = connection.CreateCommand();
+                command.CommandText = $"SELECT * FROM users WHERE login = '{text}'";
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    // Получаем данные из базы данных
+                    string name = reader.GetString("Name");
+
+                    // Выводим данные в форму
+                    LabelName.Text = name;
+                }
+                else
+                {
+                    MessageBox.Show("Нет данных в базе данных.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                // Закрываем подключение к базе данных
+                connection.Close();
+            }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
         {
             SysTrayMain.BalloonTipTitle = "Name of App";
             SysTrayMain.BalloonTipText = "fdsfds";

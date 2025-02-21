@@ -31,18 +31,30 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.MainPanelForm = new System.Windows.Forms.Panel();
+            this.LabelName = new System.Windows.Forms.Label();
+            this.LabelSurname = new System.Windows.Forms.Label();
+            this.LabelNameOfProfile = new System.Windows.Forms.Label();
+            this.LabelSurnameOfProfile = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.LabelMyProfile = new System.Windows.Forms.Label();
             this.AppMinimized = new System.Windows.Forms.Label();
             this.LabelCloseWindowLogin = new System.Windows.Forms.Label();
             this.SysTrayMain = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStripMain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainPanelForm.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.contextMenuStripMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainPanelForm
             // 
             this.MainPanelForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(68)))), ((int)(((byte)(175)))));
+            this.MainPanelForm.Controls.Add(this.LabelName);
+            this.MainPanelForm.Controls.Add(this.LabelSurname);
+            this.MainPanelForm.Controls.Add(this.LabelNameOfProfile);
+            this.MainPanelForm.Controls.Add(this.LabelSurnameOfProfile);
+            this.MainPanelForm.Controls.Add(this.panel1);
             this.MainPanelForm.Controls.Add(this.AppMinimized);
             this.MainPanelForm.Controls.Add(this.LabelCloseWindowLogin);
             this.MainPanelForm.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -52,6 +64,66 @@
             this.MainPanelForm.TabIndex = 0;
             this.MainPanelForm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainPanelForm_MouseDown);
             this.MainPanelForm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainPanelForm_MouseMove);
+            // 
+            // LabelName
+            // 
+            this.LabelName.AutoSize = true;
+            this.LabelName.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelName.Location = new System.Drawing.Point(287, 165);
+            this.LabelName.Name = "LabelName";
+            this.LabelName.Size = new System.Drawing.Size(21, 23);
+            this.LabelName.TabIndex = 10;
+            this.LabelName.Text = "_";
+            // 
+            // LabelSurname
+            // 
+            this.LabelSurname.AutoSize = true;
+            this.LabelSurname.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelSurname.Location = new System.Drawing.Point(311, 203);
+            this.LabelSurname.Name = "LabelSurname";
+            this.LabelSurname.Size = new System.Drawing.Size(21, 23);
+            this.LabelSurname.TabIndex = 9;
+            this.LabelSurname.Text = "_";
+            // 
+            // LabelNameOfProfile
+            // 
+            this.LabelNameOfProfile.AutoSize = true;
+            this.LabelNameOfProfile.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelNameOfProfile.Location = new System.Drawing.Point(216, 165);
+            this.LabelNameOfProfile.Name = "LabelNameOfProfile";
+            this.LabelNameOfProfile.Size = new System.Drawing.Size(65, 23);
+            this.LabelNameOfProfile.TabIndex = 7;
+            this.LabelNameOfProfile.Text = "Name:";
+            // 
+            // LabelSurnameOfProfile
+            // 
+            this.LabelSurnameOfProfile.AutoSize = true;
+            this.LabelSurnameOfProfile.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelSurnameOfProfile.Location = new System.Drawing.Point(216, 203);
+            this.LabelSurnameOfProfile.Name = "LabelSurnameOfProfile";
+            this.LabelSurnameOfProfile.Size = new System.Drawing.Size(89, 23);
+            this.LabelSurnameOfProfile.TabIndex = 8;
+            this.LabelSurnameOfProfile.Text = "Surname:";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(133)))), ((int)(((byte)(212)))));
+            this.panel1.Controls.Add(this.LabelMyProfile);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(123, 477);
+            this.panel1.TabIndex = 7;
+            // 
+            // LabelMyProfile
+            // 
+            this.LabelMyProfile.AutoSize = true;
+            this.LabelMyProfile.Font = new System.Drawing.Font("Times New Roman", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelMyProfile.Location = new System.Drawing.Point(3, 9);
+            this.LabelMyProfile.Name = "LabelMyProfile";
+            this.LabelMyProfile.Size = new System.Drawing.Size(117, 40);
+            this.LabelMyProfile.TabIndex = 6;
+            this.LabelMyProfile.Text = "Profile";
             // 
             // AppMinimized
             // 
@@ -116,6 +188,9 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.MainPanelForm.ResumeLayout(false);
+            this.MainPanelForm.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.contextMenuStripMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -129,5 +204,11 @@
         private System.Windows.Forms.NotifyIcon SysTrayMain;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripMain;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
+        private System.Windows.Forms.Label LabelMyProfile;
+        private System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.Label LabelName;
+        public System.Windows.Forms.Label LabelSurname;
+        private System.Windows.Forms.Label LabelNameOfProfile;
+        private System.Windows.Forms.Label LabelSurnameOfProfile;
     }
 }

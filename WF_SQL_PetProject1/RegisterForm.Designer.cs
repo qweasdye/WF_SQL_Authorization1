@@ -277,8 +277,8 @@
         private System.Windows.Forms.Panel UpperPanelLogin;
         private System.Windows.Forms.Label LabelCloseWindowRegister;
         private System.Windows.Forms.Label LabelRegister;
-        private System.Windows.Forms.TextBox userSurnameBoxRegister;
-        private System.Windows.Forms.TextBox userNameBoxRegister;
+        public System.Windows.Forms.TextBox userSurnameBoxRegister;
+        public System.Windows.Forms.TextBox userNameBoxRegister;
         private System.Windows.Forms.Label labelLogIn;
         private System.Windows.Forms.NotifyIcon SysTrayRegister;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripRegister;

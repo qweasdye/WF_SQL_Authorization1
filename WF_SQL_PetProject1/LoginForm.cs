@@ -3,23 +3,27 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 
 namespace WF_SQL_PetProject1
 {
     public partial class LoginForm : Form
     {
         Point lastPoint; // special class for setting coordinates
-
-
         public LoginForm()
         {
             InitializeComponent();
         }
+
+        
         private void LoginForm_Load(object sender, EventArgs e) // sys tray name
         {
             SysTrayLogin.BalloonTipTitle = "Name of App";
@@ -101,11 +105,12 @@ namespace WF_SQL_PetProject1
         {
             lastPoint = new Point(e.X, e.Y);
         }
-
+        
         private void buttonEnterLogin_Click(object sender, EventArgs e) // database login
         {
             string userLogin = UserBoxLogin.Text;
             string userPassword = PasswordBoxLogin.Text;
+            
 
             DataBase dataBase = new DataBase();
             DataTable dataTable = new DataTable();
@@ -115,22 +120,24 @@ namespace WF_SQL_PetProject1
             sqlCommand.Parameters.Add("@uL", MySqlDbType.VarChar).Value = userLogin;
             sqlCommand.Parameters.Add("@uP", MySqlDbType.VarChar).Value = userPassword;
 
+            
+
             sqlAdapter.SelectCommand = sqlCommand;
             sqlAdapter.Fill(dataTable);
 
             if (dataTable.Rows.Count > 0)
             {
                 this.Hide();
-                MainForm mainForm = new MainForm();
+                MainForm mainForm = new MainForm(userLogin);
                 mainForm.Show();
-            } 
+            }
         }
+
 
         private void labelRegistration_Click(object sender, EventArgs e) // open register window
         {
             this.Hide();
             RegisterForm registerForm = new RegisterForm();
-
             registerForm.Show();
         }
     }
