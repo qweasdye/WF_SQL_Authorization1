@@ -69,7 +69,7 @@ namespace WF_SQL_PetProject1
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void MainPanelRegister_MouseMove(object sender, MouseEventArgs e)
+        private void MainPanelRegister_MouseMove(object sender, MouseEventArgs e) 
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -95,7 +95,7 @@ namespace WF_SQL_PetProject1
             lastPoint = new Point(e.X, e.Y);
         }
 
-        private void CheckBoxPasswordRegister_CheckedChanged(object sender, EventArgs e)
+        private void CheckBoxPasswordRegister_CheckedChanged(object sender, EventArgs e) // checkbox for show password
         {
             if (CheckBoxPasswordRegister.Checked)
             {
@@ -107,7 +107,7 @@ namespace WF_SQL_PetProject1
             }
         }
 
-        private void userNameBoxRegister_Enter(object sender, EventArgs e)
+        private void userNameBoxRegister_Enter(object sender, EventArgs e) // text box name
         {
             if (userNameBoxRegister.Text == "Введите имя")
             {
@@ -116,7 +116,7 @@ namespace WF_SQL_PetProject1
             }
         }
 
-        private void userNameBoxRegister_Leave(object sender, EventArgs e)
+        private void userNameBoxRegister_Leave(object sender, EventArgs e) // text box name
         {
             if (userNameBoxRegister.Text == "")
             {
@@ -125,7 +125,7 @@ namespace WF_SQL_PetProject1
             }
         }
 
-        private void userSurnameBoxRegister_Enter(object sender, EventArgs e)
+        private void userSurnameBoxRegister_Enter(object sender, EventArgs e) // text box surname
         {
             if (userSurnameBoxRegister.Text == "Введите фамилию")
             {
@@ -133,7 +133,7 @@ namespace WF_SQL_PetProject1
                 userSurnameBoxRegister.ForeColor = Color.Black;
             }
         }
-        private void userSurnameBoxRegister_Leave(object sender, EventArgs e)
+        private void userSurnameBoxRegister_Leave(object sender, EventArgs e) // text box surname
         {
             if (userSurnameBoxRegister.Text == "")
             {
@@ -142,7 +142,7 @@ namespace WF_SQL_PetProject1
             }
         }
 
-        private void buttonEnterRegister_Click(object sender, EventArgs e)
+        private void buttonEnterRegister_Click(object sender, EventArgs e) // register button
         {
             if (userNameBoxRegister.Text == "Введите имя")
             {
@@ -193,7 +193,7 @@ namespace WF_SQL_PetProject1
             dataBase.closeConnection();
         }
 
-        public Boolean isUserExists()
+        public Boolean isUserExists() // if there is such a login
         {
             DataBase dataBase = new DataBase();
             DataTable dataTable = new DataTable();
@@ -215,11 +215,10 @@ namespace WF_SQL_PetProject1
             }
         }
 
-        private void labelLogIn_Click(object sender, EventArgs e)
+        private void labelLogIn_Click(object sender, EventArgs e) // button log in, in the bottom
         {
             this.Hide();
             LoginForm loginForm = new LoginForm();
-
             loginForm.Show();
         }
     }

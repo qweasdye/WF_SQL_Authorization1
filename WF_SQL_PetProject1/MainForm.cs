@@ -23,22 +23,14 @@ namespace WF_SQL_PetProject1
             FillData(text);
         }
 
-        public MainForm(string name, string surname)
-        {
-            InitializeComponent();
-
-            LabelName.Text = name;
-            LabelName.Text = surname;
-        }
-
-        private void FillData(string text)
+        private void FillData(string text) // fill name and surname in profile
         {
             string connectionString = "server=localhost;port=3306;user=root;password=root;database=userdb";
             MySqlConnection connection = new MySqlConnection(connectionString);
             LoginForm loginForm = new LoginForm();
             try
             {
-                // Выполняем запрос к базе данных
+                // running a database query
                 MySqlCommand command = connection.CreateCommand();
                 command.CommandText = $"SELECT * FROM users WHERE login = '{text}'";
                 connection.Open();
@@ -46,11 +38,13 @@ namespace WF_SQL_PetProject1
 
                 if (reader.Read())
                 {
-                    // Получаем данные из базы данных
+                    // getting data from the database
                     string name = reader.GetString("Name");
+                    string surname = reader.GetString("Surname");
 
-                    // Выводим данные в форму
+                    // output data to the form
                     LabelName.Text = name;
+                    LabelSurname.Text = surname;
                 }
                 else
                 {
@@ -63,12 +57,12 @@ namespace WF_SQL_PetProject1
             }
             finally
             {
-                // Закрываем подключение к базе данных
+                // close the connection to the database
                 connection.Close();
             }
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e) // sys tray
         {
             SysTrayMain.BalloonTipTitle = "Name of App";
             SysTrayMain.BalloonTipText = "fdsfds";
